@@ -1,14 +1,15 @@
 package com.deliganli.main.allowance
 
-import com.deliganli.main.allowance.LivingAllowanceScenario.ChildRatios
+import com.deliganli.main.allowance.AllowanceScenario.ChildRatios
 import com.deliganli.main.family.EmploymentStatus
 import com.deliganli.main.family.EmploymentStatus.EmploymentStatus
+import io.circe.generic.auto._
 
-sealed trait LivingAllowanceScenario {
+sealed trait AllowanceScenario {
   def getRatio: Double
 }
 
-object LivingAllowanceScenario {
+object AllowanceScenario {
 
   object ChildRatios {
     val first2 = 0.075
@@ -19,7 +20,7 @@ object LivingAllowanceScenario {
 }
 
 case class MarriedScenario(spouseEmploymentStatus: EmploymentStatus = EmploymentStatus.unemployed, childCount: Int = 0)
-    extends LivingAllowanceScenario {
+    extends AllowanceScenario {
   override def getRatio: Double = {
     val base = spouseEmploymentStatus match {
       case EmploymentStatus.unemployed => 0.6
@@ -36,7 +37,7 @@ case class MarriedScenario(spouseEmploymentStatus: EmploymentStatus = Employment
   }
 }
 
-case class SingleScenario() extends LivingAllowanceScenario {
+case class SingleScenario(a: String = "") extends AllowanceScenario {
   override def getRatio: Double = {
     0.5
   }

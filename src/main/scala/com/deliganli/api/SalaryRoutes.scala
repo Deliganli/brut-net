@@ -8,13 +8,13 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.http.scaladsl.server.directives.MethodDirectives.{get, post}
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
+import com.deliganli.api.model.SalaryResponse
 import com.deliganli.main.salary.{Gross, SalaryCalculator}
-import de.heikoseeberger.akkahttpcirce.ErrorAccumulatingCirceSupport._
 import io.circe.generic.auto._
 
 import scala.collection.SortedMap
 
-trait SalaryRoutes {
+trait SalaryRoutes extends JsonSupport {
   implicit def system: ActorSystem
 
   lazy val salaryRoutes: Route = pathPrefix("salaries") {
@@ -25,7 +25,8 @@ trait SalaryRoutes {
         entity(as[Seq[BigDecimal]]) { salaries =>
           val normalizedSalaries = SortedMap(Month.values().zip(salaries.map(Gross)): _*)
           val result = SalaryCalculator.annual(Year.of(2018), normalizedSalaries)
-          complete((StatusCodes.OK, result.values.map(_.net)))
+          val response = result.values.map(SalaryResponse(_))
+          complete((StatusCodes.OK, response))
         }
       })
     })

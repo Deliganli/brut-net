@@ -1,0 +1,5 @@
+package com.deliganli.api
+
+import de.heikoseeberger.akkahttpcirce.ErrorAccumulatingCirceSupport
+
+trait JsonSupport extends ErrorAccumulatingCirceSupport

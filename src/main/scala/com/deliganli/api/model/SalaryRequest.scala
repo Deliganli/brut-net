@@ -1,3 +1,3 @@
-package com.deliganli.api.request
+package com.deliganli.api.model
 
 case class SalaryRequest(year: Int, salaries: Seq[BigDecimal])
