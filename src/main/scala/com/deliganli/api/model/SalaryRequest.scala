@@ -1,3 +1,8 @@
 package com.deliganli.api.model
 
-case class SalaryRequest(year: Int, salaries: Seq[BigDecimal])
+import java.time.{Month, Year}
+
+import com.deliganli.main.salary.Gross
+import io.circe.generic.auto._
+
+case class SalaryRequest(year: Year, salaries: Map[Month, Gross])
