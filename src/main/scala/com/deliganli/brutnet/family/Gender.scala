@@ -1,4 +1,4 @@
-package com.deliganli.main.family
+package com.deliganli.brutnet.family
 
 object Gender extends Enumeration {
   type Gender = Value

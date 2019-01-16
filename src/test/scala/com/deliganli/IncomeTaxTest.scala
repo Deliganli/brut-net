@@ -1,8 +1,8 @@
 package com.deliganli
 import java.time.Year
 
-import com.deliganli.main.tax.Bracket._
-import com.deliganli.main.tax.IncomeTax
+import com.deliganli.brutnet.tax.Bracket._
+import com.deliganli.brutnet.tax.IncomeTax
 import org.scalatest.{Matchers, WordSpec}
 
 import scala.collection.SortedSet

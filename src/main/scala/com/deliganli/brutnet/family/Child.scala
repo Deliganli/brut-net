@@ -1,6 +1,6 @@
-package com.deliganli.main.family
+package com.deliganli.brutnet.family
 
-import Gender.Gender
+import com.deliganli.brutnet.family.Gender.Gender
 import org.joda.time.{LocalDate, Years}
 
 case class Child(dateOfBirth: LocalDate, gender: Gender, isStudent: Boolean) {

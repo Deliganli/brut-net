@@ -1,5 +1,3 @@
-package com.deliganli.main.allowance
-
-import io.circe.generic.auto._
+package com.deliganli.brutnet.allowance
 
 case class LivingAllowance(amount: BigDecimal, scenario: AllowanceScenario)

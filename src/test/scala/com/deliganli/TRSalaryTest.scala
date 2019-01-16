@@ -1,14 +1,15 @@
 package com.deliganli
 import java.time.{Month, Year}
 
-import com.deliganli.main.salary.{Gross, SalaryCalculator}
+import com.deliganli.brutnet.TRSalary
+import com.deliganli.brutnet.salary.Gross
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{Matchers, WordSpec}
 
 import scala.collection.SortedMap
 import scala.math.BigDecimal.RoundingMode
 
-class SalaryCalculatorTest extends WordSpec with Matchers with ScalaFutures {
+class TRSalaryTest extends WordSpec with Matchers with ScalaFutures {
 
   "SalaryCalculator" should {
     /*"Bezirci" in {
@@ -47,7 +48,7 @@ class SalaryCalculatorTest extends WordSpec with Matchers with ScalaFutures {
         Month.of(12) -> Gross(3000)
       )
 
-      val amounts = SalaryCalculator.annual(Year.of(2016), salaries)
+      val amounts = TRSalary.annual(Year.of(2016), salaries)
 
       "with correct worker contributions" in {
         val expected = Seq(280, 280, 420, 420, 700, 700, 700, 980, 980, 980, 420, 420)

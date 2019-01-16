@@ -1,9 +1,8 @@
-package com.deliganli.main.allowance
+package com.deliganli.brutnet.allowance
 
-import com.deliganli.main.allowance.AllowanceScenario.ChildRatios
-import com.deliganli.main.family.EmploymentStatus
-import com.deliganli.main.family.EmploymentStatus.EmploymentStatus
-import io.circe.generic.auto._
+import com.deliganli.brutnet.allowance.AllowanceScenario.ChildRatios
+import com.deliganli.brutnet.family.EmploymentStatus
+import com.deliganli.brutnet.family.EmploymentStatus.EmploymentStatus
 
 sealed trait AllowanceScenario {
   def getRatio: Double
@@ -13,8 +12,8 @@ object AllowanceScenario {
 
   object ChildRatios {
     val first2 = 0.075
-    val third = 0.1
-    val last2 = 0.05
+    val third  = 0.1
+    val last2  = 0.05
   }
 
 }

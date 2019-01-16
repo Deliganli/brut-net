@@ -1,14 +1,16 @@
-package com.deliganli.main.salary
+package com.deliganli.brutnet
+
 import java.time.{Month, Year}
 
-import com.deliganli.main.tax.{Bracket, IncomeTax, Tax, TaxedAmounts}
+import com.deliganli.brutnet.salary.{Gross, Salary}
+import com.deliganli.brutnet.tax.{Bracket, IncomeTax, Tax, TaxedAmounts}
 
 import scala.collection.SortedMap
 
-object SalaryCalculator {
+object TRSalary {
 
   def annual(year: Year, salaries: SortedMap[Month, Gross]) = {
-    val tax = Tax.of(year).get
+    val tax       = Tax.of(year).get
     val incomeTax = IncomeTax.of(year).get
 
     val bases = salaries.values.map(gross => gross.base(tax.ratios))
@@ -48,8 +50,8 @@ object SalaryCalculator {
     case ((processedInPreviousBucket, lastIncomeTax), bracket) =>
       val ceil: BigDecimal = bracket.ceil.getOrElse(Double.MaxValue)
       val amountUpperLimit = (accumulatedBase + base).min(ceil)
-      val bracketBase = amountUpperLimit - processedInPreviousBucket.max(accumulatedBase)
-      val incomeTax = bracketBase * bracket.ratio
+      val bracketBase      = amountUpperLimit - processedInPreviousBucket.max(accumulatedBase)
+      val incomeTax        = bracketBase * bracket.ratio
 
       (accumulatedBase + bracketBase, lastIncomeTax + incomeTax)
   }

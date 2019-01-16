@@ -1,6 +1,6 @@
-package com.deliganli.main.salary
+package com.deliganli.brutnet.salary
 
-import com.deliganli.main.tax.Ratios
+import com.deliganli.brutnet.tax.Ratios
 
 case class Gross(amount: BigDecimal) {
 

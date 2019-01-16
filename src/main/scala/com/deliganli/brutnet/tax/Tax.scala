@@ -1,8 +1,8 @@
-package com.deliganli.main.tax
+package com.deliganli.brutnet.tax
 
 import java.time.{Month, Year}
 
-import com.deliganli.main.util.IntExt.IntAug
+import com.deliganli.brutnet.util.IntExt.IntAug
 
 case class Tax(year: Year, ratios: Ratios, ceilings: Ceilings)
 

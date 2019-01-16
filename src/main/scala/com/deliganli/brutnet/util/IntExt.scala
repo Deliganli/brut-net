@@ -1,4 +1,5 @@
-package com.deliganli.main.util
+package com.deliganli.brutnet.util
+
 import java.time.{Month, Year}
 
 object IntExt {

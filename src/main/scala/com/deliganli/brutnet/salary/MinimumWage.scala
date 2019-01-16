@@ -1,8 +1,8 @@
-package com.deliganli.main.salary
+package com.deliganli.brutnet.salary
 
 import java.time.{Month, Year}
 
-import com.deliganli.main.util.IntExt.IntAug
+import com.deliganli.brutnet.util.IntExt.IntAug
 
 case class MinimumWage(year: Year, till: Month, gross: Gross, incomeTax: Double)
 

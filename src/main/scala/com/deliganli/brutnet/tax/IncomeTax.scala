@@ -1,8 +1,8 @@
-package com.deliganli.main.tax
+package com.deliganli.brutnet.tax
 
 import java.time.Year
 
-import com.deliganli.main.util.IntExt.IntAug
+import com.deliganli.brutnet.util.IntExt.IntAug
 
 import scala.collection.SortedSet
 
@@ -28,9 +28,9 @@ case class IncomeTax(year: Year, brackets: SortedSet[Bracket]) {
 case class Bracket(ratio: BigDecimal, ceil: Option[BigDecimal])
 
 object Bracket {
-  val first = BigDecimal(0.15)
+  val first  = BigDecimal(0.15)
   val second = BigDecimal(0.20)
-  val third = BigDecimal(0.27)
+  val third  = BigDecimal(0.27)
   val fourth = BigDecimal(0.35)
 
   implicit val bracketOrder: Ordering[Bracket] = Ordering.fromLessThan(_.ratio < _.ratio)
