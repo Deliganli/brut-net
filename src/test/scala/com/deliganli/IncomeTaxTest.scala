@@ -1,4 +1,5 @@
 package com.deliganli
+
 import java.time.Year
 
 import com.deliganli.brutnet.tax.Bracket._
